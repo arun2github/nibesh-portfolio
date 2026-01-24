@@ -227,6 +227,83 @@ const Contact = () => {
             </form>
           </motion.div>
         </div>
+        
+        {/* Footer - Unique Style */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-20 relative"
+        >
+          {/* Decorative chalk line */}
+          <div className="relative mb-8">
+            <div className="absolute left-1/2 -translate-x-1/2 w-full max-w-4xl h-[2px] bg-gradient-to-r from-transparent via-[#C9A227] to-transparent opacity-30"></div>
+            <div className="absolute left-1/2 -translate-x-1/2 w-full max-w-4xl h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-20 -mt-1"></div>
+          </div>
+
+          {/* Footer content */}
+          <div className="relative text-center py-8">
+            {/* Decorative corner elements */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl">
+              <div className="absolute -top-2 left-4 w-8 h-8 border-l-2 border-t-2 border-[#C9A227]/40 rounded-tl-lg"></div>
+              <div className="absolute -top-2 right-4 w-8 h-8 border-r-2 border-t-2 border-[#C9A227]/40 rounded-tr-lg"></div>
+            </div>
+
+            {/* Main footer text */}
+            <motion.div
+              initial={{ scale: 0.9 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="inline-block bg-[#0B1C2D]/30 backdrop-blur-sm px-8 py-5 rounded-2xl border-2 border-[#C9A227]/20 shadow-xl"
+            >
+              <p 
+                className="text-[#E8DCC4] text-lg md:text-xl mb-2"
+                style={{ fontFamily: "'Caveat', cursive" }}
+              >
+                ✨ Crafted with passion by
+              </p>
+              <a
+                href="http://arundevfolio.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 text-2xl md:text-3xl font-bold text-[#C9A227] hover:text-[#FFF7D6] transition-all duration-300"
+                style={{ fontFamily: "'Caveat', cursive" }}
+              >
+                <span className="inline-block group-hover:scale-110 transition-transform duration-300">🎨</span>
+                <span className="relative">
+                  Arun Kumar
+                  <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-[#C9A227] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+                </span>
+                <span className="inline-block group-hover:rotate-12 transition-transform duration-300">✨</span>
+              </a>
+              <p className="text-[#E8DCC4]/60 text-sm mt-2 italic">
+                Full Stack Developer & Creative Designer
+              </p>
+            </motion.div>
+
+            {/* Decorative bottom corner elements */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-2xl">
+              <div className="absolute -bottom-2 left-4 w-8 h-8 border-l-2 border-b-2 border-[#C9A227]/40 rounded-bl-lg"></div>
+              <div className="absolute -bottom-2 right-4 w-8 h-8 border-r-2 border-b-2 border-[#C9A227]/40 rounded-br-lg"></div>
+            </div>
+          </div>
+
+          {/* Decorative dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {[...Array(3)].map((_, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: 0.6 + i * 0.1 }}
+                className="w-2 h-2 bg-[#C9A227] rounded-full"
+              ></motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+        port: '',
+        pathname: '/**',
+      },
       // You can add other hostnames here if needed in the future
     ],
   },

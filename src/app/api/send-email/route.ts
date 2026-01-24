@@ -6,7 +6,7 @@ console.log("[API Route Start] RESEND_API_KEY from env:", process.env.RESEND_API
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Your email address where you want to receive contact form submissions
-const TO_EMAIL = 'arun.devfolio@gmail.com'; 
+const TO_EMAIL = 'afrozsatvilkar2014@gmail.com'; 
 // The email address emails will be sent from. 
 // IMPORTANT: This email MUST be a verified domain in your Resend account.
 // For initial testing, Resend might allow `onboarding@resend.dev`, but for production, verify your own domain.

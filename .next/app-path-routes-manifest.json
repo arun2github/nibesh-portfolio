@@ -1,9 +1,0 @@
-{
-  "/_not-found/page": "/_not-found",
-  "/api/send-email/route": "/api/send-email",
-  "/favicon.ico/route": "/favicon.ico",
-  "/about-details/page": "/about-details",
-  "/page": "/",
-  "/projects/page": "/projects",
-  "/projects/[id]/page": "/projects/[id]"
-}

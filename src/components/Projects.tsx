@@ -1,130 +1,91 @@
 'use client';
 import React from 'react';
-import Link from 'next/link';
 import NewProjectCard from './ui/NewProjectCard';
 import { projects as projectsData } from '@/data/portfolioData';
 import { motion } from 'framer-motion';
 
 const Projects: React.FC = () => {
-  const [activeFilter, setActiveFilter] = React.useState<'mobile' | 'web'>('mobile');
-
-  const filteredProjects = React.useMemo(() => {
-    const filtered = projectsData.filter(
-      (project) => project.category && project.category.toLowerCase() === activeFilter
-    );
-    return filtered.slice(0, 3);
-  }, [activeFilter]);
-
   if (!projectsData || projectsData.length === 0) {
     return (
-      <section id="projects" className="py-16 md:py-24 bg-[#1A1D24] text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-neutral-100">My Creative Portfolio</h2>
-        <p className="text-neutral-300">No projects to display at the moment. Please check back later!</p>
+      <section id="projects" className="py-20 md:py-28 bg-black text-center">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">My Creative Portfolio</h2>
+        <p className="text-neutral-300">No projects to display at the moment.</p>
       </section>
     );
   }
 
-  // No changes to variants are needed for this fix, but let's keep them clean.
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
-        ease: "easeOut",
+        type: 'spring',
+        stiffness: 100,
+        damping: 12
       },
-    },
-    // Optional: Add an exit animation for a smoother transition
-    exit: { 
-      opacity: 0, 
-      y: -30, 
-      transition: { duration: 0.3 } 
     },
   };
 
   return (
-    <section id="projects" className="py-20 md:py-32 bg-gradient-to-br from-[#1A1D24] via-[#212530] to-[#1A1D24]">
-      <div className="container mx-auto px-4">
-        <motion.h2 
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "circOut" }}
-          className="text-5xl md:text-6xl font-extrabold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-[#7E8CE0] via-[#535C91] to-[#A0AEC0]"
-        >
-          My Creative Portfolio
-        </motion.h2>
+    <section id="projects" className="relative py-20 md:py-28 bg-[#1A2820] overflow-hidden">
+      {/* Blackboard texture */}
+      <div className="absolute inset-0 opacity-[0.08]" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+      }}></div>
 
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex justify-center gap-4 mb-16 md:mb-20"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          {['mobile', 'web'].map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter as typeof activeFilter)}
-              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${activeFilter === filter
-                ? 'bg-gradient-to-r from-[#7E8CE0] to-[#535C91] text-white shadow-lg shadow-[#7E8CE0]/30'
-                : 'bg-white/10 text-white/70 hover:bg-white/20 hover:text-white'}`}
-            >
-              <motion.span
-                initial={false}
-                animate={{ scale: activeFilter === filter ? 1.1 : 1 }}
-                transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                className="inline-block capitalize"
-              >
-                {`${filter} Projects`}
-              </motion.span>
-            </button>
-          ))}
+          <motion.div 
+            className="w-32 h-1 bg-[#C9A227] mx-auto mb-6 rounded-full"
+            initial={{ width: 0 }}
+            animate={{ width: 128 }}
+            transition={{ duration: 0.8 }}
+          ></motion.div>
+          <h2 
+            className="text-5xl md:text-7xl font-bold text-white mb-4"
+            style={{ 
+              fontFamily: "'Caveat', cursive",
+              textShadow: '3px 3px 6px rgba(0,0,0,0.5)'
+            }}
+          >
+            My Creative <span className="text-[#C9A227]">Portfolio</span>
+          </h2>
+          <p className="text-xl md:text-2xl text-[#E8DCC4] max-w-3xl mx-auto" 
+             style={{ fontFamily: "'Caveat', cursive", textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
+            📚 Teaching Programs & Educational Frameworks
+          </p>
         </motion.div>
-        
+
         <motion.div 
-          // *** THE FIX: Add a key that changes when the filter changes ***
-          key={activeFilter} 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
           variants={containerVariants}
           initial="hidden"
-          animate="visible" // Use 'animate' instead of 'whileInView' for more direct control
-          exit="hidden" // Optional: for the whole container to fade out
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
         >
-            {filteredProjects.map((project, index) => (
-              <motion.div key={project.id || index} variants={itemVariants}>
-                <NewProjectCard project={project} />
-              </motion.div>
-            ))}
+          {projectsData.map((project, index) => (
+            <motion.div key={project.id || index} variants={itemVariants}>
+              <NewProjectCard project={project} />
+            </motion.div>
+          ))}
         </motion.div>
-
-        {projectsData.length > 3 && (
-          <motion.div 
-            className="text-center mt-12 md:mt-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          >
-            <Link href="/projects" passHref>
-              <motion.button
-                className="px-8 py-3 bg-gradient-to-r from-[#7E8CE0] to-[#535C91] text-white font-semibold rounded-lg shadow-lg hover:shadow-[#7E8CE0]/50 transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#7E8CE0] focus:ring-opacity-75"
-                whileHover={{ scale: 1.05, boxShadow: "0px 0px 15px rgba(126, 140, 224, 0.6)" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                View All Projects
-              </motion.button>
-            </Link>
-          </motion.div>
-        )}
       </div>
     </section>
   );

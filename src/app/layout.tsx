@@ -1,22 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Caveat } from "next/font/google";
 import "./globals.css";
-// import { ParallaxProvider } from 'react-scroll-parallax'; // No longer needed here
-import ParallaxWrapper from "@/components/ParallaxWrapper"; // Import the new wrapper
+import ParallaxWrapper from "@/components/ParallaxWrapper";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  weight: ['300', '400', '500', '600', '700'],
   subsets: ["latin"],
+  variable: "--font-poppins",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const caveat = Caveat({
+  weight: ['400', '600', '700'],
   subsets: ["latin"],
+  variable: "--font-caveat",
 });
 
 export const metadata: Metadata = {
-  title: "Arun - Frontend Developer Portfolio", // Updated title
-  description: "Portfolio of Arun, a skilled frontend developer.", // Updated description
+  title: "Nibhesh Kumar Das - Senior Mathematics Architect & Digital Educator",
+  description: "Premium mathematics education for IIT-JEE, GATE, and Olympiads. 16+ years expertise, 2,420+ live sessions, 500+ video lectures. Expert in competitive exam preparation.",
+  keywords: "JEE coaching, GATE preparation, mathematics tutor, IIT-JEE expert, online education",
+  openGraph: {
+    title: "Nibhesh Kumar Das - Senior Mathematics Architect",
+    description: "Premium mathematics education for competitive exams with 16+ years of expertise",
+    type: "website",
+  }
 };
 
 export default function RootLayout({
@@ -25,9 +32,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${poppins.variable} ${caveat.variable} antialiased bg-[#F9FAFB] min-h-screen font-sans`}
+        style={{ fontFamily: 'var(--font-poppins)' }}
       >
         <ParallaxWrapper>{children}</ParallaxWrapper>
       </body>

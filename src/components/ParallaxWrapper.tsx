@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { ParallaxProvider } from 'react-scroll-parallax';
-import CustomCursor from './CustomCursor';
 
 interface ParallaxWrapperProps {
   children: React.ReactNode;
@@ -11,7 +10,6 @@ interface ParallaxWrapperProps {
 const ParallaxWrapper: React.FC<ParallaxWrapperProps> = ({ children }) => {
   return (
     <ParallaxProvider>
-      <CustomCursor />
       {children}
     </ParallaxProvider>
   );

@@ -1,31 +1,31 @@
+"use client";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Projects from "@/components/Projects";
-import Technologies from "@/components/Technologies";
 import Contact from "@/components/Contact";
-import MobileFallback from "@/components/MobileFallback";
 import Experience from "@/components/Experience";
-import Education from "@/components/Education";
+import Technologies from "@/components/Technologies";
+import ExpertisePillars from "@/components/ExpertisePillars";
+import LearningLibrary from "@/components/LearningLibrary";
+import Credentials from "@/components/Credentials";
+import VideoShowcase from "@/components/VideoShowcase";
 
 export default function Home() {
   return (
-    <main>
-      {/* Mobile Fallback: Hidden on medium and larger screens */}
-      <div className="md:hidden">
-        <MobileFallback />
-      </div>
-
-      {/* Desktop Content: Hidden on small screens, visible on medium and larger screens */}
-      <div className="hidden md:block">
+    <main className="flex min-h-screen flex-col items-center justify-between bg-transparent">
         <Hero />
-        <About />
-        <Experience />
-        <Education />
-        <Projects />
-        <Technologies />
-        <Contact />
-        {/* Parallax scrolling will be implemented in these sections later */}
-      </div>
+        <div className="relative w-full">
+          <About />
+          <ExpertisePillars />
+          <LearningLibrary />
+          <VideoShowcase />
+          <Technologies />
+          <Experience />
+          {/* <Projects /> */}
+          <Credentials />
+          {/* <Achievements /> */}
+          {/* <Education /> */}
+          <Contact />
+        </div>
     </main>
   );
 }

@@ -44,10 +44,20 @@
 }
 
 body {
-  cursor: none; /* Hide the default system cursor */
+  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #F9FAFB;
+  color: #2C3E50;
 }
 
-/* Optional: Hide cursor for specific interactive elements if the custom cursor handles them */
+/* Professional educator theme */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Remove custom cursor functionality */
+* {
+  cursor: auto !important;
+}
 a,
 button {
   cursor: none; /* Ensure links and buttons also hide default cursor */

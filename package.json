@@ -12,6 +12,7 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@react-three/drei": "^10.0.8",
     "@react-three/fiber": "^9.1.2",
+    "@tsparticles/plugin-emitters": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.8.1",
     "class-variance-authority": "^0.7.1",
@@ -21,10 +22,13 @@
     "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hot-toast": "^2.5.2",
     "react-scroll-parallax": "^3.4.5",
+    "react-tsparticles": "^2.12.2",
     "resend": "^4.5.1",
-    "tailwind-merge": "^3.3.0",
-    "three": "^0.176.0"
+    "tailwind-merge": "^3.3.1",
+    "three": "^0.176.0",
+    "tsparticles-slim": "^2.12.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

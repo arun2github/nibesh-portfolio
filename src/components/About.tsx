@@ -289,7 +289,9 @@ const About = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="#contact"
+                href="https://calendly.com/nibhesh-edu/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-10 py-4 bg-[#C9A227] text-[#1A2820] font-bold rounded-lg hover:bg-[#B8941F] transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
                 style={{ fontFamily: "'Caveat', cursive", fontSize: '1.5rem' }}
               >

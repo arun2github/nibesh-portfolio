@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <motion.section 
       id="hero"
-      className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#1A2820] px-4 py-12 md:py-16"
+      className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#1A2820] px-4 sm:px-6 py-16 sm:py-20 md:py-24 safe-top safe-bottom"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
@@ -38,27 +38,15 @@ const Hero = () => {
       >
         {/* Decorative Top Border (chalk line) */}
         <motion.div 
-          className="w-24 md:w-32 h-1 bg-[#C9A227] mx-auto mb-4 md:mb-6 rounded-full"
+          className="w-20 sm:w-24 md:w-32 h-1 bg-[#C9A227] mx-auto mt-4 sm:mt-6 mb-2 sm:mb-2 rounded-full"
           initial={{ width: 0 }}
           animate={{ width: 128 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         ></motion.div>
 
-        {/* Greeting - Chalk Style */}
-        <motion.div 
-          className="inline-block mb-3 md:mb-4"
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <p className="text-sm md:text-lg text-[#E8DCC4] font-light tracking-wide" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
-            {profileData.helloTag}
-          </p>
-        </motion.div>
-
         {/* Name - Large Chalk Writing */}
         <motion.h1 
-          className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-3 md:mb-4 text-white relative px-4"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4 sm:mb-6 md:mb-8 text-white relative px-4 leading-tight"
           style={{ 
             fontFamily: "'Caveat', cursive",
             textShadow: '3px 3px 6px rgba(0,0,0,0.5), 0 0 20px rgba(201, 162, 39, 0.2)'
@@ -80,7 +68,7 @@ const Hero = () => {
 
         {/* Title - Handwritten Style */}
         <motion.h2 
-          className="text-xl md:text-2xl lg:text-3xl font-semibold text-[#C9A227] mb-3 md:mb-4 px-4"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#C9A227] mb-4 sm:mb-6 px-4 leading-relaxed"
           style={{ 
             fontFamily: "'Caveat', cursive",
             textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
@@ -94,7 +82,7 @@ const Hero = () => {
 
         {/* Description - Chalk Text */}
         <motion.p 
-          className="mt-2 md:mt-4 text-sm md:text-base text-[#E8DCC4] leading-relaxed max-w-3xl mx-auto px-4"
+          className="mt-4 sm:mt-6 md:mt-8 text-base sm:text-lg md:text-xl text-[#E8DCC4] leading-relaxed max-w-3xl mx-auto px-6 sm:px-4"
           style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -120,19 +108,19 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="mt-4 md:mt-6 flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4"
+          className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center px-4 sm:px-6"
         >
           <Link
             href="#expertise"
-            className="group relative px-6 md:px-8 py-3 md:py-4 bg-[#C9A227] text-[#1A2820] font-bold rounded-lg overflow-hidden transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 text-sm md:text-base"
-            style={{ fontFamily: "'Caveat', cursive", fontSize: '1.1rem' }}
+            className="group relative px-8 sm:px-10 py-4 sm:py-5 bg-[#C9A227] text-[#1A2820] font-bold rounded-lg overflow-hidden transition-all duration-300 shadow-lg hover:shadow-2xl active:scale-95 text-base sm:text-lg text-center touch-manipulation"
+            style={{ fontFamily: "'Caveat', cursive", fontSize: '1.3rem' }}
           >
             <span className="relative z-10">📚 Explore My Expertise</span>
           </Link>
           <Link
             href="#contact"
-            className="group relative px-6 md:px-8 py-3 md:py-4 bg-transparent text-white font-bold rounded-lg border-2 md:border-3 border-[#E8DCC4] hover:bg-[#E8DCC4]/10 transition-all duration-300 text-sm md:text-base"
-            style={{ fontFamily: "'Caveat', cursive", fontSize: '1.1rem' }}
+            className="group relative px-8 sm:px-10 py-4 sm:py-5 bg-transparent text-white font-bold rounded-lg border-2 sm:border-3 border-[#E8DCC4] hover:bg-[#E8DCC4]/10 active:scale-95 transition-all duration-300 text-base sm:text-lg text-center touch-manipulation"
+            style={{ fontFamily: "'Caveat', cursive", fontSize: '1.3rem' }}
           >
             <span className="relative z-10">✉️ Get in Touch</span>
           </Link>
@@ -143,7 +131,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4, duration: 0.8 }}
-          className="mt-8 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-5xl mx-auto px-4"
+          className="mt-10 sm:mt-14 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 md:gap-6 max-w-5xl mx-auto px-4 sm:px-6"
         >
           {[
             { icon: TrendingUp, value: "16+", label: "Years Teaching", color: "#E8DCC4" },
@@ -160,10 +148,10 @@ const Hero = () => {
                 transition={{ duration: 0.3 }}
               >
                 {/* Chalk box effect */}
-                <div className="relative bg-[#0F1711]/50 backdrop-blur-sm p-3 md:p-5 rounded-lg border-2 border-dashed border-[#E8DCC4]/30 hover:border-[#C9A227]/50 transition-all duration-300">
-                  <Icon className="w-6 h-6 md:w-7 md:h-7 mx-auto mb-2 text-[#C9A227]" strokeWidth={1.5} />
+                <div className="relative bg-[#0F1711]/50 backdrop-blur-sm p-4 sm:p-5 md:p-6 rounded-lg border-2 border-dashed border-[#E8DCC4]/30 hover:border-[#C9A227]/50 transition-all duration-300 min-h-[120px] sm:min-h-[130px] flex flex-col justify-center">
+                  <Icon className="w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 mx-auto mb-2 sm:mb-3 text-[#C9A227]" strokeWidth={1.5} />
                   <div 
-                    className="text-2xl md:text-3xl font-bold mb-1" 
+                    className="text-3xl sm:text-4xl md:text-4xl font-bold mb-1 sm:mb-2" 
                     style={{ 
                       color: metric.color,
                       fontFamily: "'Caveat', cursive",

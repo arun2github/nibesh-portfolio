@@ -23,7 +23,20 @@ export const metadata: Metadata = {
     title: "Nibhesh Kumar Das - Senior Mathematics Architect",
     description: "Premium mathematics education for competitive exams with 16+ years of expertise",
     type: "website",
-  }
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+    userScalable: true,
+    viewportFit: 'cover', // For notched devices
+  },
+  themeColor: '#1A2820',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Nibhesh Kumar Das',
+  },
 };
 
 export default function RootLayout({

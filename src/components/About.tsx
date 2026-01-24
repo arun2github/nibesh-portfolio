@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { Download, Heart, Star, Zap, Trophy } from 'lucide-react';
+import { Download, Heart, Star, Zap, Trophy, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const About = () => {
@@ -59,20 +59,20 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="relative py-24 md:py-32 bg-[#1A2820] overflow-hidden">
+    <section id="about" className="relative py-16 sm:py-20 md:py-28 lg:py-32 bg-[#1A2820] overflow-hidden">
       {/* Blackboard texture */}
       <div className="absolute inset-0 opacity-[0.08]" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
       }}></div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
         {/* Section Header - Chalk Style */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 md:mb-20"
         >
           <motion.div 
             className="w-32 h-1 bg-[#C9A227] mx-auto mb-6 rounded-full"
@@ -81,7 +81,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
           ></motion.div>
           <h2 
-            className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 px-4"
             style={{ 
               fontFamily: "'Caveat', cursive",
               textShadow: '3px 3px 6px rgba(0,0,0,0.5)'
@@ -89,7 +89,7 @@ const About = () => {
           >
             About <span className="text-[#C9A227]">Your Educator</span>
           </h2>
-          <p className="text-2xl md:text-3xl text-[#E8DCC4] max-w-4xl mx-auto leading-relaxed" 
+          <p className="text-xl sm:text-2xl md:text-3xl text-[#E8DCC4] max-w-4xl mx-auto leading-relaxed px-6" 
              style={{ fontFamily: "'Caveat', cursive", textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
             More Than a Teacher — Your Child&apos;s Academic Partner & Success Architect
           </p>
@@ -101,10 +101,10 @@ const About = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-5xl mx-auto mb-20"
+          className="max-w-5xl mx-auto mb-12 sm:mb-16 md:mb-20"
         >
           <motion.div 
-            className="relative bg-[#FFE5A0] p-10 md:p-16 rounded-lg shadow-2xl transform rotate-[-0.5deg]"
+            className="relative bg-[#FFE5A0] p-6 sm:p-8 md:p-12 lg:p-16 rounded-lg shadow-2xl transform rotate-[-0.5deg]"
             whileHover={{ rotate: 0, scale: 1.01 }}
             transition={{ duration: 0.3 }}
           >
@@ -113,13 +113,13 @@ const About = () => {
             
             <div className="text-[#1A2820]">
               <h3 
-                className="text-4xl md:text-5xl font-bold mb-8 text-center"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 text-center"
                 style={{ fontFamily: "'Caveat', cursive" }}
               >
                 📚 My Promise to You
               </h3>
               
-              <div className="space-y-6 text-lg md:text-xl leading-relaxed">
+              <div className="space-y-4 sm:space-y-5 md:space-y-6 text-base sm:text-lg md:text-xl leading-relaxed">
                 <p className="font-medium">
                   <strong className="text-2xl">Dear Parents & Students,</strong>
                 </p>
@@ -129,7 +129,7 @@ const About = () => {
                 <p>
                   As a <span className="font-bold text-[#C9A227]">2× GATE Qualifier</span> myself, I&apos;ve walked the path your child is on. I know every struggle, every doubt, every moment of confusion. That&apos;s why my teaching isn&apos;t just about formulas—it&apos;s about building <span className="font-bold">confidence, clarity, and capability</span>.
                 </p>
-                <p className="text-xl md:text-2xl font-bold text-center py-4 border-t-2 border-b-2 border-dashed border-[#1A2820]/30">
+                <p className="text-lg sm:text-xl md:text-2xl font-bold text-center py-3 sm:py-4 border-t-2 border-b-2 border-dashed border-[#1A2820]/30">
                   &quot;I don&apos;t just prepare students for exams—I prepare them for success in life.&quot;
                 </p>
               </div>
@@ -143,16 +143,16 @@ const About = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={staggerContainer}
-          className="mb-20"
+          className="mb-12 sm:mb-16 md:mb-20"
         >
           <h3 
-            className="text-4xl md:text-5xl font-bold text-white text-center mb-12"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-8 sm:mb-10 md:mb-12 px-4"
             style={{ fontFamily: "'Caveat', cursive", textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
           >
             ⭐ Why Parents Trust Me
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 md:gap-8 max-w-7xl mx-auto px-2 sm:px-4">
             {whyChooseMe.map((item, index) => {
               const Icon = item.icon;
               const rotations = ['-2deg', '1deg', '-1.5deg', '2deg'];
@@ -161,20 +161,20 @@ const About = () => {
                   key={index}
                   variants={fadeIn}
                   whileHover={{ rotate: 0, scale: 1.05, y: -8 }}
-                  className="relative p-6 rounded-lg shadow-xl transform"
+                  className="relative p-6 sm:p-7 md:p-8 rounded-lg shadow-xl transform min-h-[240px] sm:min-h-[260px] flex flex-col touch-manipulation"
                   style={{ 
                     backgroundColor: item.color,
                     rotate: rotations[index % 4]
                   }}
                 >
                   {/* Pin */}
-                  <div className="absolute -top-3 left-6 w-6 h-6 bg-red-500 rounded-full shadow-lg"></div>
+                  <div className="absolute -top-3 left-6 w-7 h-7 sm:w-8 sm:h-8 bg-red-500 rounded-full shadow-lg"></div>
                   
-                  <Icon className="w-12 h-12 text-[#0B1C2D] mb-4" strokeWidth={2} />
-                  <h4 className="text-2xl font-bold text-[#0B1C2D] mb-3" style={{ fontFamily: "'Caveat', cursive" }}>
+                  <Icon className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 text-[#0B1C2D] mb-3 sm:mb-4" strokeWidth={2} />
+                  <h4 className="text-xl sm:text-2xl md:text-2xl font-bold text-[#0B1C2D] mb-2 sm:mb-3" style={{ fontFamily: "'Caveat', cursive" }}>
                     {item.title}
                   </h4>
-                  <p className="text-[#1A2820] font-medium leading-relaxed">
+                  <p className="text-[#1A2820] font-medium leading-relaxed text-sm sm:text-base">
                     {item.description}
                   </p>
                 </motion.div>
@@ -292,12 +292,13 @@ const About = () => {
                 href="https://calendly.com/nibhesh-edu/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-10 py-4 bg-[#C9A227] text-[#1A2820] font-bold rounded-lg hover:bg-[#B8941F] transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
+                className="px-10 py-4 bg-[#C9A227] text-[#1A2820] font-bold rounded-lg hover:bg-[#B8941F] transition-all duration-300 shadow-lg hover:shadow-xl text-lg flex items-center justify-center gap-2"
                 style={{ fontFamily: "'Caveat', cursive", fontSize: '1.5rem' }}
               >
-                📞 Book Free Consultation
+                <Calendar size={24} />
+                Book Free Consultation
               </a>
-              <a
+              {/* <a
                 href="/NIBHESH_KUMAR_DAS_CV.pdf"
                 download
                 className="px-10 py-4 bg-white border-3 border-[#0B1C2D] text-[#0B1C2D] font-bold rounded-lg hover:bg-gray-100 transition-all duration-300 text-lg flex items-center justify-center gap-2"
@@ -305,7 +306,7 @@ const About = () => {
               >
                 <Download size={24} />
                 Download Resume
-              </a>
+              </a> */}
             </div>
           </motion.div>
         </motion.div>

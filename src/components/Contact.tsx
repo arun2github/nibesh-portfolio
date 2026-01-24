@@ -68,19 +68,19 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-20 md:py-28 bg-[#1A2820] overflow-hidden">
+    <section id="contact" className="relative py-16 sm:py-20 md:py-24 lg:py-28 bg-[#1A2820] overflow-hidden">
       {/* Blackboard texture */}
       <div className="absolute inset-0 opacity-[0.08]" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
       }}></div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
           <motion.div 
             className="w-32 h-1 bg-[#C9A227] mx-auto mb-6 rounded-full"
@@ -89,7 +89,7 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
           ></motion.div>
           <h2 
-            className="text-5xl md:text-7xl font-bold text-white mb-4"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 sm:mb-4 px-4"
             style={{ 
               fontFamily: "'Caveat', cursive",
               textShadow: '3px 3px 6px rgba(0,0,0,0.5)'
@@ -97,59 +97,59 @@ const Contact = () => {
           >
             Get In <span className="text-[#C9A227]">Touch</span>
           </h2>
-          <p className="text-xl md:text-2xl text-[#E8DCC4] max-w-3xl mx-auto" 
+          <p className="text-lg sm:text-xl md:text-2xl text-[#E8DCC4] max-w-3xl mx-auto px-6" 
              style={{ fontFamily: "'Caveat', cursive", textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
             ✉️ Let&apos;s Start Your Success Journey Together
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-start">
           {/* Left Column: Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-7 md:space-y-8"
           >
             <motion.div 
-              className="space-y-5 bg-[#FFE5A0] p-8 rounded-lg shadow-2xl relative"
+              className="space-y-4 sm:space-y-5 bg-[#FFE5A0] p-6 sm:p-7 md:p-8 rounded-lg shadow-2xl relative touch-manipulation"
               style={{ transform: 'rotate(1deg)' }}
               whileHover={{ rotate: 0, scale: 1.02, y: -5 }}
             >
-              <div className="absolute -top-3 right-8 w-6 h-6 bg-[#FF6B6B] rounded-full shadow-lg"></div>
+              <div className="absolute -top-3 right-8 w-7 h-7 sm:w-8 sm:h-8 bg-[#FF6B6B] rounded-full shadow-lg"></div>
               <h3 
-                className="text-3xl font-bold text-[#0B1C2D] mb-4"
+                className="text-2xl sm:text-3xl md:text-3xl font-bold text-[#0B1C2D] mb-3 sm:mb-4"
                 style={{ fontFamily: "'Caveat', cursive" }}
               >
                 📞 Contact Information
               </h3>
-              {profileData.email && <ContactInfoItem icon={<Mail size={22} />} text={profileData.email} href={`mailto:${profileData.email}`} />}
-              {profileData.phone && <ContactInfoItem icon={<Phone size={22} />} text={profileData.phone} />}
+              {profileData.email && <ContactInfoItem icon={<Mail size={20} className="sm:w-[22px] sm:h-[22px]" />} text={profileData.email} href={`mailto:${profileData.email}`} />}
+              {profileData.phone && <ContactInfoItem icon={<Phone size={20} className="sm:w-[22px] sm:h-[22px]" />} text={profileData.phone} />}
               {/* {profileData.location && <ContactInfoItem icon={<MapPin size={22} />} text={profileData.location} />} */}
             </motion.div>
 
             {(profileData as any).openTo?.length > 0 && (
               <motion.div
-                className="bg-[#B4E7CE] p-8 rounded-lg shadow-2xl relative"
+                className="bg-[#B4E7CE] p-6 sm:p-7 md:p-8 rounded-lg shadow-2xl relative touch-manipulation"
                 style={{ transform: 'rotate(-1deg)' }}
                 whileHover={{ rotate: 0, scale: 1.02, y: -5 }}
               > 
-                <div className="absolute -top-3 right-8 w-6 h-6 bg-[#4ECDC4] rounded-full shadow-lg"></div>
+                <div className="absolute -top-3 right-8 w-7 h-7 sm:w-8 sm:h-8 bg-[#4ECDC4] rounded-full shadow-lg"></div>
                 <h4 
-                  className="text-3xl font-bold text-[#0B1C2D] mb-4"
+                  className="text-2xl sm:text-3xl md:text-3xl font-bold text-[#0B1C2D] mb-3 sm:mb-4"
                   style={{ fontFamily: "'Caveat', cursive" }}
                 >
                   💼 I&apos;m Open To
                 </h4>
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   {(profileData as any).openTo.map((item: any, index: number) => {
                     const iconName = (item.icon || 'default').toLowerCase();
                     const Icon = openToIconMap[iconName] || openToIconMap.default;
                     return (
-                      <div key={index} className="flex items-center bg-white/50 p-3 rounded-lg">
+                      <div key={index} className="flex items-center bg-white/50 p-3 sm:p-4 rounded-lg touch-manipulation">
                         <Icon size={20} className="mr-3 text-[#0B1C2D] flex-shrink-0" />
-                        <span className="text-[#0B1C2D] font-medium">{item.text}</span>
+                        <span className="text-[#0B1C2D] font-medium text-sm sm:text-base">{item.text}</span>
                       </div>
                     );
                   })}
@@ -189,34 +189,34 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative bg-[#FFDAB9] p-8 md:p-10 rounded-lg shadow-2xl"
+            className="relative bg-[#FFDAB9] p-6 sm:p-7 md:p-9 lg:p-10 rounded-lg shadow-2xl touch-manipulation"
             style={{ transform: 'rotate(-1deg)' }}
             whileHover={{ rotate: 0, scale: 1.01 }}
           >
-            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-6 h-6 bg-[#FFA07A] rounded-full shadow-lg"></div>
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-7 h-7 sm:w-8 sm:h-8 bg-[#FFA07A] rounded-full shadow-lg"></div>
             
             <h3 
-              className="text-3xl md:text-4xl font-bold text-[#0B1C2D] mb-6 text-center"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0B1C2D] mb-5 sm:mb-6 text-center"
               style={{ fontFamily: "'Caveat', cursive" }}
             >
               ✉️ Send Me a Message
             </h3>
             
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
               <input type="text" name="name" required value={formData.name} onChange={handleChange} placeholder="Your Name"
-                     className="w-full px-4 py-3 bg-white/70 border-2 border-[#0B1C2D]/20 rounded-lg focus:ring-2 focus:ring-[#C9A227] focus:border-[#C9A227] outline-none transition-all duration-300 text-[#0B1C2D] placeholder:text-[#0B1C2D]/50 font-medium" />
+                     className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white/70 border-2 border-[#0B1C2D]/20 rounded-lg focus:ring-2 focus:ring-[#C9A227] focus:border-[#C9A227] outline-none transition-all duration-300 text-[#0B1C2D] placeholder:text-[#0B1C2D]/50 font-medium text-base sm:text-lg touch-manipulation" />
               <input type="email" name="email" required value={formData.email} onChange={handleChange} placeholder="Your Email"
-                     className="w-full px-4 py-3 bg-white/70 border-2 border-[#0B1C2D]/20 rounded-lg focus:ring-2 focus:ring-[#C9A227] focus:border-[#C9A227] outline-none transition-all duration-300 text-[#0B1C2D] placeholder:text-[#0B1C2D]/50 font-medium" />
+                     className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white/70 border-2 border-[#0B1C2D]/20 rounded-lg focus:ring-2 focus:ring-[#C9A227] focus:border-[#C9A227] outline-none transition-all duration-300 text-[#0B1C2D] placeholder:text-[#0B1C2D]/50 font-medium text-base sm:text-lg touch-manipulation" />
               <input type="text" name="subject" required value={formData.subject} onChange={handleChange} placeholder="Subject"
-                     className="w-full px-4 py-3 bg-white/70 border-2 border-[#0B1C2D]/20 rounded-lg focus:ring-2 focus:ring-[#C9A227] focus:border-[#C9A227] outline-none transition-all duration-300 text-[#0B1C2D] placeholder:text-[#0B1C2D]/50 font-medium" />
+                     className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white/70 border-2 border-[#0B1C2D]/20 rounded-lg focus:ring-2 focus:ring-[#C9A227] focus:border-[#C9A227] outline-none transition-all duration-300 text-[#0B1C2D] placeholder:text-[#0B1C2D]/50 font-medium text-base sm:text-lg touch-manipulation" />
               <textarea name="message" required value={formData.message} onChange={handleChange} placeholder="Your Message" rows={5}
-                        className="w-full px-4 py-3 bg-white/70 border-2 border-[#0B1C2D]/20 rounded-lg focus:ring-2 focus:ring-[#C9A227] focus:border-[#C9A227] outline-none transition-all duration-300 text-[#0B1C2D] placeholder:text-[#0B1C2D]/50 resize-none font-medium"></textarea>
+                        className="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white/70 border-2 border-[#0B1C2D]/20 rounded-lg focus:ring-2 focus:ring-[#C9A227] focus:border-[#C9A227] outline-none transition-all duration-300 text-[#0B1C2D] placeholder:text-[#0B1C2D]/50 resize-none font-medium text-base sm:text-lg touch-manipulation"></textarea>
               <button type="submit" disabled={status.submitting}
-                      className="w-full px-8 py-4 bg-[#C9A227] text-[#0B1C2D] font-bold rounded-lg hover:bg-[#B8941F] transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                      className="w-full px-8 py-4 sm:py-5 bg-[#C9A227] text-[#0B1C2D] font-bold rounded-lg hover:bg-[#B8941F] active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center touch-manipulation text-lg sm:text-xl"
                       style={{ fontFamily: "'Caveat', cursive", fontSize: '1.5rem' }}>
-                <span className="flex items-center">
+                <span className="flex items-center gap-2 sm:gap-3">
                   {status.submitting ? 'Sending...' : 'Send Message'}
-                  <Send size={20} className="ml-2" />
+                  <Send size={22} className="sm:w-6 sm:h-6" />
                 </span>
               </button>
               {status.message && (

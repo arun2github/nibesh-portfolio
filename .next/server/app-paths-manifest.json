@@ -3,6 +3,8 @@
   "/_not-found/page": "app/_not-found/page.js",
   "/about-details/page": "app/about-details/page.js",
   "/api/send-email/route": "app/api/send-email/route.js",
+  "/apple-icon/route": "app-edge-has-no-entrypoint",
   "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/icon/route": "app-edge-has-no-entrypoint",
   "/page": "app/page.js"
 }

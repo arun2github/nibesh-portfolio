@@ -14,6 +14,7 @@ export interface ProfileData {
   logoUrl: string;
   email?: string;
   phone?: string;
+  whatsapp?: string;
   skillSet?: { name: string; level: number; color?: string; }[];
 }
 
@@ -86,6 +87,14 @@ export interface Achievement {
   imageUrl: string;
 }
 
+export interface Testimonial {
+  name: string;
+  role: string;
+  platform?: string;
+  testimonial: string;
+  achievement?: string;
+}
+
 export interface Service {
   title: string;
   iconUrl: string;
@@ -103,12 +112,13 @@ export const profileData: ProfileData = {
   welcomeTag: "Senior Mathematics Architect & Digital Educator",
   title1: "Senior Mathematics Architect",
   title2: "Digital Educator & GATE Expert",
-  about: "With 16+ years of pedagogical expertise, I bridge the gap between conceptual depth and competitive success. Through 2,400+ live sessions and 500+ specialized video lectures, I've mentored thousands in IIT-JEE, Olympiads, GATE, and board examinations.",
+  about: "With 16+ years of pedagogical expertise, I bridge the gap between conceptual depth and competitive success. Through 15,000+ live sessions and 500+ specialized video lectures, I've mentored thousands in IIT-JEE, Olympiads, GATE, and board examinations.",
   about2: "As a 2× GATE Qualifier (2011 & 2024) with CCNA certification, I combine scholarly rigor with practical expertise to deliver premium mathematics education.",
   profileIconUrl: "/images/nibhesh-profile.jpg",
   logoUrl: "/images/kgm-logo.svg",
   email: "nibhesh.edu@gmail.com",
-  phone: "+91 8588857161",
+  phone: "+91 9911318226",
+  whatsapp: "919911318226",
   skillSet: [
     { name: "Complex Analysis", level: 95, color: "bg-blue-600" },
     { name: "Linear Algebra", level: 95, color: "bg-indigo-600" },
@@ -153,9 +163,9 @@ export const expertisePillars: ExpertisePillar[] = [
     id: "institutional-infrastructure",
     title: "Institutional & Digital Infrastructure",
     subtitle: "Scalable Education Solutions",
-    description: "Successfully managed 2,420+ live sessions on Vedantu with secure infrastructure expertise.",
+    description: "Successfully managed 15,000+ live sessions on Vedantu with secure infrastructure expertise.",
     keyPoints: [
-      "2,420+ live sessions on Vedantu platform",
+      "15,000+ live sessions on Vedantu platform",
       "Online exam logistics & proctoring setup",
       "CCNA networking expertise",
       "Digital pedagogy & content curation",
@@ -237,7 +247,7 @@ export const learningLibraryMetrics: LearningLibraryMetric[] = [
     description: "Comprehensive video library covering all advanced topics"
   },
   {
-    metric: "2,420+",
+    metric: "15,000+",
     value: "Live Interactive Sessions",
     description: "Sessions on Vedantu with high engagement rates"
   },
@@ -306,7 +316,7 @@ export const experiences: Experience[] = [
     companyName: "Vedantu",
     date: "2015 - 2024 | 9 Years",
     points: [
-      "Conducted 2,420+ live mathematics sessions",
+      "Conducted 15,000+ live mathematics sessions",
       "Achieved 4.8+ rating with consistent student satisfaction",
       "Developed JEE Main, JEE Advanced, and GATE content",
       "Pioneered interactive problem-solving methodologies",
@@ -367,19 +377,51 @@ export const projects: Project[] = [
 // --- SOCIAL MEDIA LINKS ---
 export const socialMediaLinks: SocialMediaLink[] = [
   {
+    name: "LinkedIn",
+    iconUrl: "/images/social/linkedin.svg",
+    url: "https://www.linkedin.com/in/nibhesh-kumar-das/"
+  },
+  {
     name: "YouTube",
     iconUrl: "/images/social/youtube.svg",
     url: "https://www.youtube.com/@takeinmaths"
   },
   {
+    name: "Instagram",
+    iconUrl: "/images/social/instagram.svg",
+    url: "https://www.instagram.com/nibhesh_mathematics/"
+  },
+  {
+    name: "Facebook",
+    iconUrl: "/images/social/facebook.svg",
+    url: "https://www.facebook.com/nibhesh.mathematics"
+  },
+  {
+    name: "Twitter",
+    iconUrl: "/images/social/twitter.svg",
+    url: "https://twitter.com/nibhesh_math"
+  },
+  {
+    name: "AtoPlay",
+    iconUrl: "/images/social/atoplay.svg",
+    url: "https://atoplay.com/channels/e2c32d87-73be-4396-9fa9-a577b4a53135"
+  },
+  {
     name: "WhatsApp",
     iconUrl: "/images/social/whatsapp.svg",
-    url: "https://wa.me/918588857161"
+    url: "https://wa.me/919911318226"
   }
 ];
 
 // --- ACHIEVEMENTS ---
 export const achievements: Achievement[] = [
+  {
+    title: "AtoPlay Big Learning Challenge Winner",
+    issuer: "AtoPlay Educational Platform",
+    date: "2024",
+    description: "1st Place Winner - FluteMaths Channel recognized for exceptional educational content and student engagement",
+    imageUrl: "/images/atoplay_winner.jpeg"
+  },
   {
     title: "2× GATE Qualifier",
     issuer: "Ministry of Education, India",
@@ -388,7 +430,7 @@ export const achievements: Achievement[] = [
     imageUrl: "/images/achievements/gate-qualifier.jpg"
   },
   {
-    title: "2,420+ Live Sessions Conducted",
+    title: "15,000+ Live Sessions Conducted",
     issuer: "Vedantu Educational Platform",
     date: "2015 - 2024",
     description: "High-engagement sessions with consistent 4.8+ ratings",
@@ -407,5 +449,28 @@ export const achievements: Achievement[] = [
     date: "Active",
     description: "Cisco Certified Network Associate with infrastructure expertise",
     imageUrl: "/images/achievements/ccna-certified.jpg"
+  }
+];
+
+// --- STUDENT TESTIMONIALS ---
+export const testimonials: Testimonial[] = [
+  {
+    name: "Aksita",
+    role: "Student (Class 6-12)",
+    platform: "Vedantu",
+    testimonial: "Nibhesh sir taught me mathematics from class 6 to 12 and that consistency helped me develop very strong concepts. His way of explaining from basics and patiently clearing doubts made learning maths much easier and more enjoyable for me."
+  },
+  {
+    name: "Randip",
+    role: "IIT Admit & CBSE Board Topper",
+    platform: "Vedantu",
+    achievement: "100/100 in Class XII CBSE Mathematics | IIT Admission",
+    testimonial: "I was fortunate to learn mathematics from Nibhesh Sir during my CBSE and JEE preparation. His calm, patient teaching style and detailed explanations made a huge difference in my understanding of the subject. With his constant support and guidance, I achieved a perfect 100/100 in Class XII CBSE Mathematics and also earned admission into an IIT. I truly credit a large part of my success to his mentorship."
+  },
+  {
+    name: "Akansha",
+    role: "Long-term Student",
+    platform: "Vedantu",
+    testimonial: "I am happy that I spent several years learning from Nibesh sir, which helped me strengthen my Maths fundamentals. There's a lot of repetition and reinforcement in Nibesh sir's classes, which supports deep, long-term understanding. Key concepts receive regular revision and revisiting, and Nibesh sir solves every problem in class. Overall, the classes are immensely useful for conceptual clarity."
   }
 ];

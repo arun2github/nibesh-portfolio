@@ -8,6 +8,7 @@ import ExpertisePillars from "@/components/ExpertisePillars";
 import LearningLibrary from "@/components/LearningLibrary";
 import Credentials from "@/components/Credentials";
 import VideoShowcase from "@/components/VideoShowcase";
+import Achievements from "@/components/Achievements";
 
 export default function Home() {
   return (
@@ -20,9 +21,9 @@ export default function Home() {
           <VideoShowcase />
           <Technologies />
           <Experience />
-          {/* <Projects /> */}
+          <Achievements />
           <Credentials />
-          {/* <Achievements /> */}
+          {/* <Projects /> */}
           {/* <Education /> */}
           <Contact />
         </div>

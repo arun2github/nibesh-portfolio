@@ -47,16 +47,25 @@ const Achievements = () => {
   }
 
   return (
-    <section id="achievements" className="py-20 md:py-28 bg-[#F9FAFB]">
-      <div className="container mx-auto px-4">
+    <section id="achievements" className="relative py-20 md:py-28 bg-[#1A2820] overflow-hidden">
+      {/* Blackboard texture */}
+      <div className="absolute inset-0 opacity-[0.08]" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+      }}></div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <motion.h2 
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.7, ease: "circOut" }}
           className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-16 md:mb-20 text-center text-white"
+          style={{ 
+            fontFamily: "'Caveat', cursive",
+            textShadow: '3px 3px 6px rgba(0,0,0,0.5)'
+          }}
         >
-          Awards & <span className="text-cyan-400">Accolades</span>
+          Awards & <span className="text-[#C9A227]">Accolades</span>
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {achievements.map((item, index) => (
@@ -64,6 +73,11 @@ const Achievements = () => {
           ))}
         </div>
       </div>
+
+      {/* Google Font */}
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&display=swap');
+      `}</style>
     </section>
   );
 };

@@ -17,7 +17,7 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: "Nibhesh Kumar Das - Senior Mathematics Architect & Digital Educator",
-  description: "Premium mathematics education for IIT-JEE, GATE, and Olympiads. 16+ years expertise, 2,420+ live sessions, 500+ video lectures. Expert in competitive exam preparation.",
+  description: "Premium mathematics education for IIT-JEE, GATE, and Olympiads. 16+ years expertise, 15,000+ live sessions, 500+ video lectures. Expert in competitive exam preparation.",
   keywords: "JEE coaching, GATE preparation, mathematics tutor, IIT-JEE expert, online education",
   openGraph: {
     title: "Nibhesh Kumar Das - Senior Mathematics Architect",

@@ -1,9 +1,15 @@
 'use client';
-import React from 'react';
-import { Download, Heart, Star, Zap, Trophy, Calendar } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { Download, Heart, Star, Zap, Trophy, Calendar, ChevronDown, ChevronUp } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { testimonials } from '@/data/portfolioData';
 
 const About = () => {
+  const [expandedTestimonial, setExpandedTestimonial] = useState<number | null>(null);
+
+  const toggleTestimonial = (index: number) => {
+    setExpandedTestimonial(expandedTestimonial === index ? null : index);
+  };
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeInOut" } },
@@ -45,15 +51,9 @@ const About = () => {
     }
   ];
 
-  const testimonialHighlights = [
-    { icon: Star, text: "My daughter improved from 40% to 92% in just 6 months!", author: "- Parent, Class XII" },
-    { icon: Trophy, text: "Cleared GATE with AIR 47! Best decision to join Sir's classes", author: "- Rahul M., GATE 2024" },
-    { icon: Heart, text: "Patient, caring, and incredibly knowledgeable. Math is fun now!", author: "- Student, Class X" }
-  ];
-
   const successMetrics = [
     { value: "16+", label: "Years Teaching" },
-    { value: "2,420+", label: "Live Classes" },
+    { value: "15,000+", label: "Live Classes" },
     { value: "1000+", label: "Students Mentored" },
     { value: "98%", label: "Success Rate" }
   ];
@@ -235,29 +235,73 @@ const About = () => {
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {testimonialHighlights.map((testimonial, index) => {
-              const Icon = testimonial.icon;
+            {testimonials.slice(0, 3).map((testimonial, index) => {
+              const icons = [Star, Trophy, Heart];
+              const Icon = icons[index];
               const colors = ['#B4E7CE', '#FFB4B4', '#FFDAB9'];
               const rotations = ['1.5deg', '-1deg', '2deg'];
+              const isExpanded = expandedTestimonial === index;
+              const shouldTruncate = testimonial.testimonial.length > 100;
+              
               return (
                 <motion.div
                   key={index}
                   variants={fadeIn}
-                  whileHover={{ rotate: 0, scale: 1.05 }}
-                  className="relative p-6 rounded-lg shadow-xl transform"
+                  whileHover={{ rotate: 0, scale: 1.02 }}
+                  className="relative p-6 rounded-lg shadow-xl transform cursor-pointer"
                   style={{
                     backgroundColor: colors[index],
                     rotate: rotations[index]
                   }}
+                  onClick={() => shouldTruncate && toggleTestimonial(index)}
                 >
                   <div className="absolute -top-3 right-6 w-6 h-6 bg-blue-500 rounded-full shadow-lg"></div>
                   <Icon className="w-8 h-8 text-[#0B1C2D] mb-3" />
-                  <p className="text-[#0B1C2D] font-medium text-lg mb-3 italic">
-                    &quot;{testimonial.text}&quot;
-                  </p>
+                  
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={isExpanded ? 'expanded' : 'collapsed'}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <p className="text-[#0B1C2D] font-medium text-lg mb-3 italic">
+                        &quot;{isExpanded || !shouldTruncate ? testimonial.testimonial : testimonial.testimonial.substring(0, 100) + '...'}&quot;
+                      </p>
+                    </motion.div>
+                  </AnimatePresence>
+                  
+                  {shouldTruncate && (
+                    <button 
+                      className="flex items-center gap-1 text-[#0B1C2D] font-semibold text-sm mb-3 hover:text-[#C9A227] transition-colors"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleTestimonial(index);
+                      }}
+                    >
+                      {isExpanded ? (
+                        <>
+                          <span>Show less</span>
+                          <ChevronUp size={16} />
+                        </>
+                      ) : (
+                        <>
+                          <span>Read more</span>
+                          <ChevronDown size={16} />
+                        </>
+                      )}
+                    </button>
+                  )}
+                  
                   <p className="text-[#1A2820] text-sm font-semibold">
-                    {testimonial.author}
+                    - {testimonial.name}, {testimonial.role}
                   </p>
+                  {testimonial.achievement && (
+                    <p className="text-[#C9A227] text-xs font-bold mt-2">
+                      🏆 {testimonial.achievement}
+                    </p>
+                  )}
                 </motion.div>
               );
             })}
@@ -289,7 +333,7 @@ const About = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://calendly.com/nibhesh-edu/30min"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSf9dektRDbkilhJp9zdQ_MfEqqD1Ml6Xuzu-ET54slD8tge3Q/viewform"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-10 py-4 bg-[#C9A227] text-[#1A2820] font-bold rounded-lg hover:bg-[#B8941F] transition-all duration-300 shadow-lg hover:shadow-xl text-lg flex items-center justify-center gap-2"

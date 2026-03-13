@@ -135,7 +135,7 @@ const Hero = () => {
         >
           {[
             { icon: TrendingUp, value: "16+", label: "Years Teaching", color: "#E8DCC4" },
-            { icon: BookOpen, value: "2,420+", label: "Live Sessions", color: "#C9A227" },
+            { icon: BookOpen, value: "15,000+", label: "Live Sessions", color: "#C9A227" },
             { icon: Award, value: "500+", label: "Video Lectures", color: "#E8DCC4" },
             { icon: Target, value: "2× GATE", label: "Qualifier", color: "#C9A227" }
           ].map((metric, index) => {

@@ -9,7 +9,7 @@ interface VideoItem {
   title: string;
   thumbnail: string;
   channelUrl: string;
-  platform: "youtube" | "instagram" | "facebook";
+  platform: "youtube" | "instagram" | "facebook" | "atoplay";
   description: string;
 }
 
@@ -54,6 +54,14 @@ const videos: VideoItem[] = [
     platform: "youtube",
     description: "Winning strategies for GATE preparation"
   },
+  {
+    id: "6",
+    title: "Mathematics Live Session - AtoPlay",
+    thumbnail: "https://img.youtube.com/vi/default/maxresdefault.jpg",
+    channelUrl: "https://atoplay.com/channels/e2c32d87-73be-4396-9fa9-a577b4a53135",
+    platform: "atoplay",
+    description: "Interactive live mathematics sessions"
+  },
  
 ];
 
@@ -78,6 +86,8 @@ const VideoShowcase = () => {
     switch (platform) {
       case "youtube":
         return <Youtube className="w-5 h-5" />;
+      case "atoplay":
+        return <Play className="w-5 h-5 text-[#C9A227]" />;
       case "instagram":
         return <div className="w-5 h-5 text-pink-500">IG</div>;
       case "facebook":

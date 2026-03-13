@@ -115,14 +115,14 @@ const Hero = () => {
             className="group relative px-8 sm:px-10 py-4 sm:py-5 bg-[#C9A227] text-[#1A2820] font-bold rounded-lg overflow-hidden transition-all duration-300 shadow-lg hover:shadow-2xl active:scale-95 text-base sm:text-lg text-center touch-manipulation"
             style={{ fontFamily: "'Caveat', cursive", fontSize: '1.3rem' }}
           >
-            <span className="relative z-10">📚 Explore My Expertise</span>
+            <span className="relative z-10">Explore My Expertise</span>
           </Link>
           <Link
             href="#contact"
             className="group relative px-8 sm:px-10 py-4 sm:py-5 bg-transparent text-white font-bold rounded-lg border-2 sm:border-3 border-[#E8DCC4] hover:bg-[#E8DCC4]/10 active:scale-95 transition-all duration-300 text-base sm:text-lg text-center touch-manipulation"
             style={{ fontFamily: "'Caveat', cursive", fontSize: '1.3rem' }}
           >
-            <span className="relative z-10">✉️ Get in Touch</span>
+            <span className="relative z-10">Get in Touch</span>
           </Link>
         </motion.div>
 

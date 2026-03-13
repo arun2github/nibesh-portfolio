@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { Download, Heart, Star, Zap, Trophy, Calendar, ChevronDown, ChevronUp } from 'lucide-react';
+import { Calendar, ChevronDown, ChevronUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { testimonials } from '@/data/portfolioData';
 
@@ -26,25 +26,21 @@ const About = () => {
 
   const whyChooseMe = [
     {
-      icon: Trophy,
       title: "Proven Results",
       description: "My students don't just pass—they excel! 2× GATE Qualifier myself, I've mentored 100+ students to top 100 ranks. Your success is my mission.",
       color: "#FFD93D"
     },
     {
-      icon: Heart,
       title: "Student-First Teaching",
       description: "Every child is unique. I take time to understand your learning style, pace, and challenges. No student left behind—ever!",
       color: "#FF6B9D"
     },
     {
-      icon: Zap,
       title: "Concept Clarity Guaranteed",
       description: "Forget rote learning! I build deep understanding through real-world examples, interactive sessions, and doubt-clearing that actually works.",
       color: "#95E1D3"
     },
     {
-      icon: Zap,
       title: "Parents Stay Connected",
       description: "Monthly progress reports, open communication, and scheduled parent-teacher meetings. You'll always know how your child is doing.",
       color: "#F38181"
@@ -116,7 +112,7 @@ const About = () => {
                 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 text-center"
                 style={{ fontFamily: "'Caveat', cursive" }}
               >
-                📚 My Promise to You
+                My Promise to You
               </h3>
               
               <div className="space-y-4 sm:space-y-5 md:space-y-6 text-base sm:text-lg md:text-xl leading-relaxed">
@@ -149,19 +145,18 @@ const About = () => {
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center mb-8 sm:mb-10 md:mb-12 px-4"
             style={{ fontFamily: "'Caveat', cursive", textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
           >
-            ⭐ Why Parents Trust Me
+            Why Parents Trust Me
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 md:gap-8 max-w-7xl mx-auto px-2 sm:px-4">
             {whyChooseMe.map((item, index) => {
-              const Icon = item.icon;
               const rotations = ['-2deg', '1deg', '-1.5deg', '2deg'];
               return (
                 <motion.div
                   key={index}
                   variants={fadeIn}
                   whileHover={{ rotate: 0, scale: 1.05, y: -8 }}
-                  className="relative p-6 sm:p-7 md:p-8 rounded-lg shadow-xl transform min-h-[240px] sm:min-h-[260px] flex flex-col touch-manipulation"
+                  className="relative p-6 sm:p-7 md:p-8 rounded-lg shadow-xl transform min-h-[200px] sm:min-h-[220px] flex flex-col touch-manipulation"
                   style={{ 
                     backgroundColor: item.color,
                     rotate: rotations[index % 4]
@@ -170,8 +165,7 @@ const About = () => {
                   {/* Pin */}
                   <div className="absolute -top-3 left-6 w-7 h-7 sm:w-8 sm:h-8 bg-red-500 rounded-full shadow-lg"></div>
                   
-                  <Icon className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 text-[#0B1C2D] mb-3 sm:mb-4" strokeWidth={2} />
-                  <h4 className="text-xl sm:text-2xl md:text-2xl font-bold text-[#0B1C2D] mb-2 sm:mb-3" style={{ fontFamily: "'Caveat', cursive" }}>
+                  <h4 className="text-2xl sm:text-3xl md:text-3xl font-bold text-[#0B1C2D] mb-3 sm:mb-4" style={{ fontFamily: "'Caveat', cursive" }}>
                     {item.title}
                   </h4>
                   <p className="text-[#1A2820] font-medium leading-relaxed text-sm sm:text-base">
@@ -195,7 +189,7 @@ const About = () => {
             className="text-4xl md:text-5xl font-bold text-white text-center mb-12"
             style={{ fontFamily: "'Caveat', cursive", textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
           >
-            📊 Success by Numbers
+            Success by Numbers
           </h3>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
@@ -231,13 +225,11 @@ const About = () => {
             className="text-4xl md:text-5xl font-bold text-white text-center mb-12"
             style={{ fontFamily: "'Caveat', cursive", textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
           >
-            💬 What Students & Parents Say
+            What Students & Parents Say
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {testimonials.slice(0, 3).map((testimonial, index) => {
-              const icons = [Star, Trophy, Heart];
-              const Icon = icons[index];
               const colors = ['#B4E7CE', '#FFB4B4', '#FFDAB9'];
               const rotations = ['1.5deg', '-1deg', '2deg'];
               const isExpanded = expandedTestimonial === index;
@@ -256,7 +248,6 @@ const About = () => {
                   onClick={() => shouldTruncate && toggleTestimonial(index)}
                 >
                   <div className="absolute -top-3 right-6 w-6 h-6 bg-blue-500 rounded-full shadow-lg"></div>
-                  <Icon className="w-8 h-8 text-[#0B1C2D] mb-3" />
                   
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -266,7 +257,7 @@ const About = () => {
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <p className="text-[#0B1C2D] font-medium text-lg mb-3 italic">
+                      <p className="text-[#0B1C2D] font-medium text-lg mb-3 italic leading-relaxed">
                         &quot;{isExpanded || !shouldTruncate ? testimonial.testimonial : testimonial.testimonial.substring(0, 100) + '...'}&quot;
                       </p>
                     </motion.div>
@@ -298,9 +289,12 @@ const About = () => {
                     - {testimonial.name}, {testimonial.role}
                   </p>
                   {testimonial.achievement && (
-                    <p className="text-[#C9A227] text-xs font-bold mt-2">
-                      🏆 {testimonial.achievement}
-                    </p>
+                    <div className="mt-3 p-2 bg-white/60 rounded-md border-l-4 border-[#C9A227]">
+                      <p className="text-sm font-bold flex items-center gap-2">
+                        <span className="text-base">🏆</span>
+                        <span className="text-[#C9A227]">{testimonial.achievement}</span>
+                      </p>
+                    </div>
                   )}
                 </motion.div>
               );
@@ -326,7 +320,7 @@ const About = () => {
               className="text-3xl md:text-4xl font-bold text-[#0B1C2D] mb-6"
               style={{ fontFamily: "'Caveat', cursive" }}
             >
-              🎯 Ready to Transform Your Child&apos;s Academic Journey?
+              Ready to Transform Your Child&apos;s Academic Journey?
             </h3>
             <p className="text-lg text-[#1A2820] mb-8 font-medium">
               Let&apos;s discuss how I can help your child achieve their dreams. Book a FREE consultation call today!

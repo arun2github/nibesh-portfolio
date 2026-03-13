@@ -427,28 +427,28 @@ export const achievements: Achievement[] = [
     issuer: "Ministry of Education, India",
     date: "2011 & 2024",
     description: "Qualified GATE in Mathematics, demonstrating mastery in advanced concepts",
-    imageUrl: "/images/achievements/gate-qualifier.jpg"
+       imageUrl: "/images/achievements/placeholder-1.jpg"
   },
   {
     title: "15,000+ Live Sessions Conducted",
     issuer: "Vedantu Educational Platform",
     date: "2015 - 2024",
     description: "High-engagement sessions with consistent 4.8+ ratings",
-    imageUrl: "/images/achievements/vedantu-sessions.jpg"
+    imageUrl: "/images/achievements/placeholder-1.jpg"
   },
   {
     title: "500+ Video Lectures Published",
     issuer: "YouTube - Take In Maths Channel",
     date: "2018 - Present",
     description: "Specialized lectures for JEE, GATE, and Olympiad preparation",
-    imageUrl: "/images/achievements/youtube-videos.jpg"
+    imageUrl: "/images/achievements/placeholder-2.jpg"
   },
   {
     title: "CCNA Certified",
     issuer: "Cisco Systems",
     date: "Active",
     description: "Cisco Certified Network Associate with infrastructure expertise",
-    imageUrl: "/images/achievements/ccna-certified.jpg"
+    imageUrl: "/images/achievements/placeholder-3.jpg"
   }
 ];
 

@@ -32,11 +32,11 @@ const Credentials = () => {
           </h2>
           <p className="text-xl md:text-2xl text-[#E8DCC4] max-w-3xl mx-auto" 
              style={{ fontFamily: "'Caveat', cursive", textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
-            🏆 Academic Excellence & Professional Certifications
+            Academic Excellence & Professional Certifications
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:grid-cols-6">
           {credentials.map((credential, index) => {
             const colors = ['#FFE5A0', '#B4E7CE', '#FFB4B4', '#FFDAB9', '#E0BBE4', '#FFF9C4'];
             const rotations = [2, -2, 1, -1, 1.5, -1.5];
@@ -51,7 +51,13 @@ const Credentials = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ rotate: 0, scale: 1.05, y: -8 }}
-                className="relative p-6 rounded-lg shadow-2xl transition-all"
+                className={`relative p-6 rounded-lg shadow-2xl transition-all ${
+                  index <= 2 ? 'lg:col-span-2' : ''
+                } ${
+                  index === 3 ? 'lg:col-span-2 lg:col-start-2' : ''
+                } ${
+                  index === 4 ? 'lg:col-span-2' : ''
+                }`}
                 style={{
                   backgroundColor: colors[colorIndex],
                   transform: `rotate(${rotations[colorIndex]}deg)`,

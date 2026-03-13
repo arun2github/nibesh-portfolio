@@ -187,7 +187,7 @@ const Contact = () => {
             animate={{ opacity: [0.8, 1, 0.8] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            ✉️ Let&apos;s Start Your Success Journey Together 🚀
+            Let&apos;s Start Your Success Journey Together
           </motion.p>
         </motion.div>
 
@@ -198,10 +198,10 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-6 sm:space-y-7 md:space-y-8 flex flex-col h-full"
+            className="flex flex-col gap-6 sm:gap-7 md:gap-8 h-full"
           >
             <motion.div 
-              className="relative bg-gradient-to-br from-[#FFE5A0] to-[#FFD580] p-8 sm:p-9 md:p-10 rounded-2xl shadow-2xl overflow-hidden touch-manipulation"
+              className="relative bg-gradient-to-br from-[#FFE5A0] to-[#FFD580] p-8 sm:p-9 md:p-10 rounded-2xl shadow-2xl overflow-hidden touch-manipulation flex-1 flex flex-col justify-center"
               style={{ transform: 'rotate(1deg)' }}
               whileHover={{ rotate: 0, scale: 1.05, y: -8 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -301,7 +301,7 @@ const Contact = () => {
 
             {(profileData as any).openTo?.length > 0 && (
               <motion.div
-                className="bg-[#B4E7CE] p-6 sm:p-7 md:p-8 rounded-lg shadow-2xl relative touch-manipulation"
+                className="bg-[#B4E7CE] p-6 sm:p-7 md:p-8 rounded-lg shadow-2xl relative touch-manipulation flex-1 flex flex-col justify-center"
                 style={{ transform: 'rotate(-1deg)' }}
                 whileHover={{ rotate: 0, scale: 1.02, y: -5 }}
               > 
@@ -328,7 +328,7 @@ const Contact = () => {
             )}
 
             <motion.div
-              className="bg-[#FFB4B4] p-8 rounded-lg shadow-2xl relative"
+              className="bg-[#FFB4B4] p-8 rounded-lg shadow-2xl relative flex-1 flex flex-col justify-center"
               style={{ transform: 'rotate(1.5deg)' }}
               whileHover={{ rotate: 0, scale: 1.05, y: -8 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -504,6 +504,29 @@ const Contact = () => {
                   </motion.div>
                 </motion.span>
               </motion.button>
+
+              {/* Divider with "OR" */}
+              <div className="flex items-center gap-3 my-2">
+                <div className="flex-1 h-[1px] bg-[#0B1C2D]/20"></div>
+                <span className="text-[#0B1C2D]/50 font-medium text-sm">OR</span>
+                <div className="flex-1 h-[1px] bg-[#0B1C2D]/20"></div>
+              </div>
+
+              {/* Book Consultation Button */}
+              <motion.a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSf9dektRDbkilhJp9zdQ_MfEqqD1Ml6Xuzu-ET54slD8tge3Q/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full px-8 py-4 sm:py-5 bg-white/70 border-2 border-[#C9A227] text-[#0B1C2D] font-bold rounded-lg hover:bg-[#C9A227] hover:text-white active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center touch-manipulation text-lg sm:text-xl"
+                style={{ fontFamily: "'Caveat', cursive", fontSize: '1.5rem' }}
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 25px -5px rgba(201, 162, 39, 0.3)" }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="flex items-center gap-2 sm:gap-3">
+                  Book Free Consultation
+                  <MessageCircle size={22} className="sm:w-6 sm:h-6" />
+                </span>
+              </motion.a>
               
               {status.message && (
                 <motion.p 

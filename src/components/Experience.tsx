@@ -45,12 +45,6 @@ const ExperienceCard = ({ experience, index }: { experience: typeof experiences[
           transform: `rotate(${index % 2 === 0 ? '1deg' : '-1deg'})`,
         }}
       >
-        {/* Pin */}
-        <div 
-          className="absolute -top-3 right-8 w-6 h-6 rounded-full shadow-lg"
-          style={{ backgroundColor: index % 2 === 0 ? '#FF6B6B' : '#4ECDC4' }}
-        ></div>
-
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3">
           <h3 
             className="text-2xl md:text-3xl font-bold text-[#0B1C2D] mb-2"
@@ -67,7 +61,7 @@ const ExperienceCard = ({ experience, index }: { experience: typeof experiences[
           className="text-lg text-[#0B1C2D] mb-4 font-bold"
           style={{ fontFamily: "'Caveat', cursive" }}
         >
-          🏫 {experience.companyName}
+          {experience.companyName}
         </div>
         
         <ul className="list-none text-[#0B1C2D] space-y-2 pl-0">

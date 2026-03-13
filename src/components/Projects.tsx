@@ -69,7 +69,7 @@ const Projects: React.FC = () => {
           </h2>
           <p className="text-xl md:text-2xl text-[#E8DCC4] max-w-3xl mx-auto" 
              style={{ fontFamily: "'Caveat', cursive", textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}>
-            📚 Teaching Programs & Educational Frameworks
+            Teaching Programs & Educational Frameworks
           </p>
         </motion.div>
 

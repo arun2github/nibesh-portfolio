@@ -1,18 +1,18 @@
 'use client';
-import React from 'react';
+import React, { useRef } from 'react';
 import { achievements } from '@/data/portfolioData';
-import { Award, Calendar } from 'lucide-react';
+import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const AchievementCard = ({ achievement, index }: { achievement: (typeof achievements)[0], index: number }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, x: 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-      className="group relative flex flex-col h-full bg-[#FFFFFF] border border-[#E5E7EB] rounded-xl overflow-hidden transition-all duration-300 hover:border-[#C9A227] hover:shadow-xl hover:-translate-y-2"
+      className="group relative flex flex-col flex-shrink-0 w-[280px] sm:w-[320px] md:w-[350px] h-[420px] bg-[#FFFFFF] border border-[#E5E7EB] rounded-xl overflow-hidden transition-all duration-300 hover:border-[#C9A227] hover:shadow-xl hover:-translate-y-2"
     >
       <div className="relative w-full h-48">
         <Image 
@@ -23,9 +23,6 @@ const AchievementCard = ({ achievement, index }: { achievement: (typeof achievem
           className="transition-transform duration-300 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300"></div>
-        <div className="absolute top-4 right-4 p-2 bg-[#FFF7D6] backdrop-blur-md rounded-full border border-[#C9A227]">
-           <Award size={24} className="text-[#C9A227]" />
-        </div>
       </div>
       
       <div className="flex-grow p-6 flex flex-col">
@@ -42,6 +39,19 @@ const AchievementCard = ({ achievement, index }: { achievement: (typeof achievem
 };
 
 const Achievements = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 370; // Card width + gap
+      const newScrollPosition = scrollContainerRef.current.scrollLeft + (direction === 'left' ? -scrollAmount : scrollAmount);
+      scrollContainerRef.current.scrollTo({
+        left: newScrollPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   if (!achievements || achievements.length === 0) {
     return null;
   }
@@ -67,12 +77,63 @@ const Achievements = () => {
         >
           Awards & <span className="text-[#C9A227]">Accolades</span>
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {achievements.map((item, index) => (
-            <AchievementCard key={index} achievement={item} index={index} />
-          ))}
+        
+        {/* Horizontal Scrollable Container with External Arrows */}
+        <div className="relative flex items-center gap-4 max-w-7xl mx-auto">
+          {/* Left Arrow - Outside */}
+          <button
+            onClick={() => scroll('left')}
+            className="flex-shrink-0 bg-[#C9A227] hover:bg-[#B8941F] text-[#1A2820] p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 hidden md:flex items-center justify-center"
+            aria-label="Previous achievement"
+          >
+            <ChevronLeft size={28} strokeWidth={3} />
+          </button>
+
+          {/* Scrollable Cards Container */}
+          <div 
+            ref={scrollContainerRef}
+            className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide px-4 md:px-0 flex-1"
+            style={{
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none',
+              WebkitOverflowScrolling: 'touch'
+            }}
+          >
+            {achievements.map((item, index) => (
+              <div key={index} className="snap-center">
+                <AchievementCard achievement={item} index={index} />
+              </div>
+            ))}
+          </div>
+
+          {/* Right Arrow - Outside */}
+          <button
+            onClick={() => scroll('right')}
+            className="flex-shrink-0 bg-[#C9A227] hover:bg-[#B8941F] text-[#1A2820] p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 hidden md:flex items-center justify-center"
+            aria-label="Next achievement"
+          >
+            <ChevronRight size={28} strokeWidth={3} />
+          </button>
+        </div>
+          
+        {/* Scroll Indicator */}
+        <div className="text-center mt-4">
+          <p className="text-[#E8DCC4] text-sm md:text-base" style={{ fontFamily: "'Caveat', cursive" }}>
+            <span className="hidden md:inline">Use arrows or</span> ← Swipe to see more →
+          </p>
         </div>
       </div>
+
+      {/* Custom scrollbar styles */}
+      <style jsx>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
 
       {/* Google Font */}
       <style jsx global>{`
